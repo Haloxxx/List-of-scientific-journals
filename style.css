@@ -1,0 +1,28 @@
+.center {
+	text-align: center;
+}
+
+#buttons2 {
+	text-align: right;
+	margin-right: 250px;
+	margin-bottom: 50px;
+}
+
+#buttons {
+	text-align: right;
+	margin-right: 250px;
+}
+
+
+#main {
+	margin-left: 70px;
+	
+}
+
+li, ul{
+    display: inline;
+}
+
+#check {
+	margin-left: 30px;
+}

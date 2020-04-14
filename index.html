@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <title>Wykaz czasopism</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="dane.js"></script>
+    </head>
+    <body>
+
+
+    <div class="center"><h1>Wykaz czasopism naukowych 2019</h1></div><br>
+    
+	<form name="uploadForm" action="#" onsubmit="wyslij(); return false;">
+	
+	<div id="main">
+	<ul>
+        <li>Id publikacji:
+		<input type="number" id="id" min="1">
+        <li>Tytuł:
+        <input type="text" id="title" maxlength="250"><!-- onKeyUp="wyslij();">-->
+        <li>ISSN:
+        <input type="text" id="issn" maxlength="13">
+        <li>e-ISSN:
+        <input type="text" id="eissn" maxlength="13">
+        <li>Tytuł2:
+        <input type="text" id="title2" maxlength="250"><!-- onKeyUp="wyslij();>-->
+        <li>ISSN2:
+        <input type="text" id="issn2" maxlength="13">
+        <li>e-ISSN2:
+        <input type="text" id="eissn2" maxlength="13">
+		<li>Punkty:
+		<select id="points">
+			<option value="0">Wszystkie</option>
+		    <option value="20">>=40</option>
+		    <option value="40">>=70</option>
+		    <option value="70">>=100</option>
+		    <option value="100">>=140</option>
+			<!--<option value="140">>140</option>-->
+			<option value="199">200</option>
+		</select>
+	</ul>
+	</div>
+	
+    <div id="check">
+    <label><input type="checkbox" id="101">archeologia</label>
+    <label><input type="checkbox" id="102">filozofia</label>
+    <label><input type="checkbox" id="103">historia</label>
+    <label><input type="checkbox" id="104">językoznawstwo</label>
+    <label><input type="checkbox" id="105">literaturoznawstwo</label>
+    <label><input type="checkbox" id="106">nauki o kulturze i religii</label>
+    <label><input type="checkbox" id="107">nauki o sztuce</label>
+    <label><input type="checkbox" id="201">architektura i urbanistyka</label>
+    <label><input type="checkbox" id="202">automatyka, elektronika i elektrotechnika</label>
+    <label><input type="checkbox" id="203">informatyka techniczna i telekomunikacyjna</label>
+    <label><input type="checkbox" id="204">inżynieria biomedyczna</label>
+    <label><input type="checkbox" id="205">inżynieria chemiczna</label>
+    <label><input type="checkbox" id="206">inżynieria lądowa i transportowa</label>
+    <label><input type="checkbox" id="207">inżynieria materiałowa</label>
+    <label><input type="checkbox" id="208">inżynieria mechaniczna</label>
+    <label><input type="checkbox" id="209">inżynieria środowiska, górnictwo i energetyka</label>
+    <label><input type="checkbox" id="301">nauki farmaceutyczne</label>
+    <label><input type="checkbox" id="302">nauki medyczne</label>
+    <label><input type="checkbox" id="303">nauki o kulturze fizycznej</label>
+    <label><input type="checkbox" id="304">nauki o zdrowiu</label>
+    <label><input type="checkbox" id="401">nauki leśne</label>
+    <label><input type="checkbox" id="402">rolnictwo i ogrodnictwo</label>
+    <label><input type="checkbox" id="403">technologia żywności i żywienia</label>
+    <label><input type="checkbox" id="404">weterynaria</label>
+    <label><input type="checkbox" id="405">zootechnika i rybactwo</label>
+    <label><input type="checkbox" id="501">ekonomia i finanse</label>
+    <label><input type="checkbox" id="502">geografia społeczno-ekonomiczna i gospodarka przestrzenna</label>
+    <label><input type="checkbox" id="503">nauki o bezpieczeństwie</label>
+    <label><input type="checkbox" id="504">nauki o komunikacji społecznej i mediach</label>
+    <label><input type="checkbox" id="505">nauki o polityce i administracji</label>
+    <label><input type="checkbox" id="506">nauki o zarządzaniu i jakości</label>
+    <label><input type="checkbox" id="507">nauki prawne</label>
+    <label><input type="checkbox" id="508">nauki socjologiczne</label>
+    <label><input type="checkbox" id="509">pedagogika</label>
+    <label><input type="checkbox" id="510">prawo kanoniczne</label>
+    <label><input type="checkbox" id="511">psychologia</label>
+    <label><input type="checkbox" id="601">astronomia</label>
+    <label><input type="checkbox" id="602">informatyka</label>
+    <label><input type="checkbox" id="603">matematyka</label>
+    <label><input type="checkbox" id="604">nauki biologiczne</label>
+    <label><input type="checkbox" id="605">nauki chemiczne</label>
+    <label><input type="checkbox" id="606">nauki fizyczne</label>
+    <label><input type="checkbox" id="607">nauki o Ziemi i środowisku</label>
+    <label><input type="checkbox" id="701">nauki teologiczne</label>
+    </div>
+    
+	
+    
+    <br>
+    <div id="buttons">
+	<input type="submit" value="Szukaj" onsubmit="wyslij()"/>
+	<input type="reset">
+	
+	<br><br>
+    
+	
+	<input type="button" value="<---" onclick="odejmij()"/>
+	<input type="button" value="--->" onclick="dodaj()"/>
+	
+	<input type="number" id="page" min="1" value="1" style="width: 50px">
+	/ <input type="number" id="noPages" min="1" style="width: 50px" disabled>
+	
+	</div>
+    </form>
+
+    
+
+	<br><br>
+	<div id="lista" style="margin-bottom: 100px; text-align: center;"></div>
+	
+
+    <div id="buttons2">
+	<input type="button" value="<---" onclick="odejmij()"/>
+	<input type="button" value="--->" onclick="dodaj()"/>
+	
+	<input type="number" id="page2" min="1" value="1" style="width: 50px">
+	/ <input type="number" id="noPages2" min="1" style="width: 50px" disabled>
+	
+	</div>
+	
+	<input type="hidden" id="code" value="0">
+	
+    </body>
+</html>
